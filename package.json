@@ -22,8 +22,10 @@
   },
   "homepage": "https://github.com/Nunes-ND/nlw-agents-advanced-web#readme",
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.11",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
     "@biomejs/biome": "2.0.6",

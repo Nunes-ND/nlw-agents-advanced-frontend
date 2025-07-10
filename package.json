@@ -1,33 +1,37 @@
 {
-	"name": "frontend",
-	"private": true,
-	"version": "0.0.0",
-	"type": "module",
-	"scripts": {
-		"dev": "vite",
-		"build": "tsc -b && vite build",
-		"preview": "vite preview"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Nunes-ND/nlw-agents-advanced-web.git"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/Nunes-ND/nlw-agents-advanced-web/issues"
-	},
-	"homepage": "https://github.com/Nunes-ND/nlw-agents-advanced-web#readme",
-	"dependencies": {
-		"react": "^19.1.0",
-		"react-dom": "^19.1.0"
-	},
-	"devDependencies": {
-		"@types/react": "^19.1.8",
-		"@types/react-dom": "^19.1.6",
-		"@vitejs/plugin-react": "^4.6.0",
-		"typescript": "~5.8.3",
-		"vite": "^7.0.4"
-	}
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "biome lint --write",
+    "format": "biome format --write",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nunes-ND/nlw-agents-advanced-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nunes-ND/nlw-agents-advanced-web/issues"
+  },
+  "homepage": "https://github.com/Nunes-ND/nlw-agents-advanced-web#readme",
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.0.6",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.6.0",
+    "typescript": "~5.8.3",
+    "ultracite": "5.0.32",
+    "vite": "^7.0.4"
+  }
 }

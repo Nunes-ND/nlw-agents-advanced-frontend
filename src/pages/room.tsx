@@ -1,33 +1,50 @@
-import { useQuery } from '@tanstack/react-query';
+import { ArrowLeft, Radio } from 'lucide-react';
 import { Link, Navigate, useParams } from 'react-router-dom';
-import type { RoomProps } from '@/types/room';
+import { QuestionForm } from '@/components/question-form';
+import { QuestionList } from '@/components/question-list';
+import { Button } from '@/components/ui/button';
 
-type RoomParams = {
+export type RoomParams = {
   roomId: string;
 };
 
 export function Room() {
   const { roomId } = useParams<RoomParams>();
-  const { data, isLoading } = useQuery({
-    queryKey: ['get-room'],
-    queryFn: async () => {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/rooms/${roomId}`
-      );
-      const result: RoomProps = await response.json();
-      return result;
-    },
-  });
 
   if (!roomId) {
     return <Navigate replace to="/" />;
   }
 
   return (
-    <div>
-      {isLoading && <p>Loading...</p>}
-      <h1>{data?.name}</h1>
-      <Link to="/">Go to home</Link>
-    </div>
+    <main className="min-h-screen p-8">
+      <section className="mx-auto max-w-4xl items-start">
+        <article className="mb-4 flex items-center justify-between">
+          <Link to="/">
+            <Button variant="outline">
+              <ArrowLeft className="mr-2 size-4" />
+              Back to Home
+            </Button>
+          </Link>
+          <Link to={`/rooms/${roomId}/audio`}>
+            <Button className="flex items-center gap-2" variant="secondary">
+              <Radio className="size-4" />
+              Record Audio
+            </Button>
+          </Link>
+        </article>
+
+        <article className="mb-4">
+          <h1 className="mb-1 font-bold text-2xl text-foreground">
+            Question Room
+          </h1>
+          <p className="mb-4 text-muted-foreground">
+            Ask questions and get AI-powered answers
+          </p>
+          <QuestionForm roomId={roomId} />
+        </article>
+
+        <QuestionList roomId={roomId} />
+      </section>
+    </main>
   );
 }
